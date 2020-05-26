@@ -117,6 +117,9 @@ return [
         BookStack\Providers\EventServiceProvider::class,
         BookStack\Providers\RouteServiceProvider::class,
         BookStack\Providers\CustomFacadeProvider::class,
+
+        // Passport for API Login
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*

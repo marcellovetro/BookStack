@@ -34,7 +34,7 @@ class Kernel extends HttpKernel
             \BookStack\Http\Middleware\ThrottleApiRequests::class,
             \BookStack\Http\Middleware\EncryptCookies::class,
             \BookStack\Http\Middleware\StartSessionIfCookieExists::class,
-            \BookStack\Http\Middleware\ApiAuthenticate::class,
+            // \BookStack\Http\Middleware\ApiAuthenticate::class,
         ],
     ];
 
@@ -45,6 +45,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth'       => \BookStack\Http\Middleware\Authenticate::class,
+        'auth-api'   => \BookStack\Http\Middleware\ApiAuthenticate::class,
         'can'        => \Illuminate\Auth\Middleware\Authorize::class,
         'guest'      => \BookStack\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,

@@ -3,6 +3,7 @@
 namespace BookStack\Providers;
 
 use Auth;
+use Laravel\Passport\Passport;
 use BookStack\Api\ApiTokenGuard;
 use BookStack\Auth\Access\ExternalBaseUserProvider;
 use BookStack\Auth\Access\Guards\LdapSessionGuard;
@@ -45,6 +46,8 @@ class AuthServiceProvider extends ServiceProvider
                 $app[RegistrationService::class]
             );
         });
+
+        Passport::routes();
     }
 
     /**

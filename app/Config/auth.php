@@ -41,7 +41,8 @@ return [
             'provider' => 'external',
         ],
         'api' => [
-            'driver' => 'api-token',
+            'driver' => 'passport',
+            'provider' => 'users',
         ],
     ],
 

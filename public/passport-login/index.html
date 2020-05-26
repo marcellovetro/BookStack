@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+
+    <h1>Passport Login</h1>
+
+    <button type="button"
+            onclick="go('../api/login', myFunction)">Login
+    </button>
+</div>
+
+<script>
+    const sleep = (s) => {
+        return new Promise(resolve => setTimeout(resolve, (s*1000)))
+    }
+    function go(url, cFunction) {
+        var xhttp;
+        xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                cFunction(this);
+            }
+        };
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send("email=admin@admin.com&password=password");
+    }
+    function myFunction(xhttp) {
+        document.getElementById("demo").innerHTML =
+            xhttp.responseText + "<br><br> Redirect in 3 sec ...";
+        sleep(3).then(() => {
+            window.location.href = "../";
+        })
+    }
+</script>
+</body>
+</html>

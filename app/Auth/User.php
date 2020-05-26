@@ -1,5 +1,6 @@
 <?php namespace BookStack\Auth;
 
+use Laravel\Passport\HasApiTokens;
 use BookStack\Api\ApiToken;
 use BookStack\Model;
 use BookStack\Notifications\ResetPassword;
@@ -29,7 +30,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, Notifiable;
+    use HasApiTokens, Authenticatable, CanResetPassword, Notifiable;
 
     /**
      * The database table used by the model.
@@ -41,7 +42,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * The attributes that are mass assignable.
      * @var array
      */
-    protected $fillable = ['name', 'email'];
+    protected $fillable = ['name', 'email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
